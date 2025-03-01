@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программы от GoBobDev</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Программы от GoBobDev</h1>
+        <div class="social-links">
+            <a href="https://github.com/GoBobDev" target="_blank">
+                <img src="github_icon.png" alt="GitHub Icon">
+            </a>
+            <a href="https://youtube.com/@GoBobDev" target="_blank">
+                <img src="youtube_icon.png" alt="YouTube Icon">
+            </a>
+            <a href="https://discord.gg/t8wHyVdVg9" target="_blank">
+                <img src="discord_icon.png" alt="Discord Icon">
+            </a>
+        </div>
+        <div class="theme-switch" onclick="toggleTheme()">Темная тема</div>
+    </header>
+    <main>
+        <div class="card">
+            <img src="screenshot_xtweaker.png" alt="XTweaker Screenshot">
+            <div class="info">
+                <div class="details">
+                    <h2>XTweaker</h2>
+                    <p>Инструмент для настройки Windows.</p>
+                </div>
+                <a onclick="showModal()">Скачать</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="screenshot_lunaclean.png" alt="LunaClean Screenshot">
+            <div class="info">
+                <div class="details">
+                    <h2>LunaClean</h2>
+                    <p>Программа для управлением ПК через трей.</p>
+                </div>
+                <a href="https://github.com/GoBobDev/LunaClean/releases/latest/download/Setup.exe" class="download-btn">Скачать</a>
+            </div>
+        </div>
+        <div class="card gray disabled">
+            <div class="info">
+                <div class="details">
+                    <h2>Скоро!</h2>
+                    <p>Возможно, здесь что-то будет.</p>
+                </div>
+                <a href="#">Скачать</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Сайт ещё не доделан!</p>
+    </footer>
+    <div class="modal" id="downloadModal">
+        <div class="modal-content" id="modalContent">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2>Выберите релиз</h2>
+            <a href="https://github.com/GoBobDev/XTweaker/releases/latest/download/XTweakerSetup.exe">Стабильная версия</a>
+            <a href="https://github.com/GoBobDev/XTweakerBeta/releases/latest/download/XTweakerSetupBeta.exe">Beta версия</a>
+            <a href="https://gobobdev.github.io/programs/XTweaker.ps1">Стабильная версия (Быстрый установщик .ps1)</a>
+            <a href="https://gobobdev.github.io/programs/XTweakerBeta.ps1">Beta версия (Быстрый установщик .ps1)</a>
+        </div>
+    </div>
+    <script>
+        // Синхронизация темы с браузером без сохранения выбора в localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDarkScheme) {
+                document.body.classList.add('dark');
+                document.querySelector('header').classList.add('dark');
+                document.querySelector('footer').classList.add('dark');
+                document.querySelectorAll('.card').forEach(card => {
+                    card.classList.add('dark');
+                });
+                document.querySelector('#modalContent').classList.add('dark');
+            }
+        });
+
+        function toggleTheme() {
+            const isDarkMode = document.body.classList.toggle('dark');
+            document.querySelector('header').classList.toggle('dark', isDarkMode);
+            document.querySelector('footer').classList.toggle('dark', isDarkMode);
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.toggle('dark', isDarkMode);
+            });
+            document.querySelector('#modalContent').classList.toggle('dark', isDarkMode);
+        }
+
+        function showModal() {
+            document.getElementById('downloadModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('downloadModal').classList.remove('show');
+        }
+    </script>
+</body>
+</html>

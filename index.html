@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя страница</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать!</h1>
+        <div class="social-links">
+            <a href="https://github.com/GoBobDev" target="_blank">
+                <img src="github_icon.png" alt="GitHub Icon">
+            </a>
+            <a href="https://youtube.com/@GoBobDev" target="_blank">
+                <img src="youtube_icon.png" alt="YouTube Icon">
+            </a>
+            <a href="https://discord.gg/t8wHyVdVg9" target="_blank">
+                <img src="discord_icon.png" alt="Discord Icon">
+            </a>
+        </div>
+        <div class="theme-switch" onclick="toggleTheme()">Темная тема</div>
+    </header>
+    <main>
+        <div class="centered-content">
+            <p class="header-text">Выберите страницу для перехода:</p>
+            <div class="button-row">
+                <div>
+                    <a href="https://gobobdev.github.io/programs">Программы</a>
+                    <p>Здесь программы от GoBobDev.</p>
+                </div>
+                <div>
+                    <a href="https://gobobdev.github.io/mods">Сборки Windows</a>
+                    <p>Здесь сборки Windows от GoBobDev.</p>
+                </div>
+                <div>
+                    <a class="disabled">GoPlay</a>
+                    <p>Здесь будет каталог лучших программ.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Сайт ещё не доделан!</p>
+    </footer>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            document.querySelector('header').classList.toggle('dark');
+            document.querySelector('footer').classList.toggle('dark');
+        }
+
+        // Check for browser's dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark', 'no-transition');
+            document.querySelector('header').classList.add('dark');
+            document.querySelector('footer').classList.add('dark');
+        }
+    </script>
+</body>
+</html>

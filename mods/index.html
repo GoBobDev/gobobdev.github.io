@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сборки Windows от GoBobDev</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Сборки Windows от GoBobDev</h1>
+        <div class="social-links">
+            <a href="https://github.com/GoBobDev" target="_blank">
+                <img src="github_icon.png" alt="GitHub Icon">
+            </a>
+            <a href="https://youtube.com/@GoBobDev" target="_blank">
+                <img src="youtube_icon.png" alt="YouTube Icon">
+            </a>
+            <a href="https://discord.com/ваш_профиль" target="_blank">
+                <img src="discord_icon.png" alt="Discord Icon">
+            </a>
+        </div>
+        <div class="theme-switch" onclick="toggleTheme()">Темная тема</div>
+    </header>
+    <main>
+        <div class="card">
+            <img src="screenshot_xtweaker.png" alt="LunaOS Desktop Screenshot">
+            <div class="info">
+                <div class="details">
+                    <h2>LunaOS</h2>
+                    <p>Модификатор системы, под производительность.</p>
+                </div>
+                <a onclick="showModal()">Скачать</a>
+            </div>
+        </div>
+        <div class="card gray disabled">
+            <div class="info">
+                <div class="details">
+                    <h2>Скоро!</h2>
+                    <p>Возможно, здесь что-то будет.</p>
+                </div>
+                <a href="#">Скачать</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Сайт ещё не доделан!</p>
+    </footer>
+    <div class="modal" id="downloadModal">
+        <div class="modal-content" id="modalContent">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2>Выберите релиз</h2>
+            <a href="https://gobobdev.github.io/mods/download/win11pro24H2">ISO файл (Windows 11 Pro 24H2 Classic) [СКОРО]</a>
+            <a href="https://gobobdev.github.io/mods/download/win11pro22H2Lite">ISO файл (Windows 11 Pro 22H2 Lite) [СКОРО]</a>
+            <a href="https://gobobdev.github.io/mods/download/win10pro22H2Lite">ISO файл (Windows 10 Pro 22H2 Lite) [v1]</a>
+            <a href="https://github.com/GoBobDev/LunaOS/releases/latest/download/Setup.zip">ZIP с модификатором (.exe)</a>
+        </div>
+    </div>
+    <script>
+        // Синхронизация темы с браузером и переключение тем
+        document.addEventListener('DOMContentLoaded', function() {
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDarkScheme) {
+                document.body.classList.add('dark');
+                document.querySelector('header').classList.add('dark');
+                document.querySelector('footer').classList.add('dark');
+                document.querySelectorAll('.card').forEach(card => {
+                    card.classList.add('dark');
+                });
+                document.querySelector('#modalContent').classList.add('dark');
+            }
+        });
+
+        function toggleTheme() {
+            const isDarkMode = document.body.classList.toggle('dark');
+            document.querySelector('header').classList.toggle('dark', isDarkMode);
+            document.querySelector('footer').classList.toggle('dark', isDarkMode);
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.toggle('dark', isDarkMode);
+            });
+            document.querySelector('#modalContent').classList.toggle('dark', isDarkMode);
+        }
+
+        function showModal() {
+            document.getElementById('downloadModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('downloadModal').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
