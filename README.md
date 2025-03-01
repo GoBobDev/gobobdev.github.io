@@ -1,2 +1,2 @@
 # gobobdev.github.io
-**Смотреть код: https://github.com/GoBobDev/gobobdev.github.io/tree/web
+**Смотреть код: [Жми!](https://github.com/GoBobDev/gobobdev.github.io/tree/web)**
