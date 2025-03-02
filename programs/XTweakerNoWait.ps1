@@ -66,7 +66,7 @@ try {
     }
 
     # Use Start-Process directly
-    Start-Process -FilePath $filename -ArgumentList '/VERYSILENT' -Verb RunAs -Wait
+    Start-Process -FilePath $filename -ArgumentList '/VERYSILENT /TASKS="desktopicon"' -Verb RunAs -Wait
 
     # Remove file with elevated privileges
     $removeCommand = "Remove-Item -Path '$filename' -ErrorAction Stop"
